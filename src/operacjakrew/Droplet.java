@@ -74,6 +74,4 @@ public class Droplet {
     {
         yPosition = yPosition + incrementY;
     }
-    
-    
 }
