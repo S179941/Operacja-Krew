@@ -32,4 +32,91 @@ public class Images {
     private final Image doctor = new ImageIcon("assets/others/doctor.png").getImage();
     private final Image droplet = new ImageIcon("assets/others/droplet.png").getImage();
     private final Image help = new ImageIcon("assets/others/help.png").getImage(); //Blood compatibility chart
+    private final Image ending = new ImageIcon("assets/others/ending.png").getImage(); //Ending panel
+    
+    //Functions for image access
+    
+    public Image get_blood_bag_empty() {
+        return blood_bag_empty;
+    }
+    
+    public Image get_blood_bag_1() {
+        return blood_bag_1;
+    }
+    
+    public Image get_blood_bag_2() {
+        return blood_bag_2;
+    }
+    
+    public Image get_blood_bag_full() {
+        return blood_bag_empty;
+    }
+    
+    public Image get_droplet_0m() {
+        return droplet_0m;
+    }
+    
+    public Image get_droplet_0p() {
+        return droplet_0p;
+    }
+    
+    public Image get_droplet_Am() {
+        return droplet_Am;
+    }
+    
+    public Image get_droplet_Ap() {
+        return droplet_Ap;
+    }
+    
+    public Image get_droplet_Bm() {
+        return droplet_Bm;
+    }
+    
+    public Image get_droplet_Bp() {
+        return droplet_Bp;
+    }
+    
+    public Image get_droplet_ABm() {
+        return droplet_ABm;
+    }
+    
+    public Image get_droplet_ABp() {
+        return droplet_ABp;
+    }
+    
+    public Image get_sc_1() {
+        return sc_1;
+    }
+    
+    public Image get_sc_2() {
+        return sc_2;
+    }
+    
+    public Image get_sc_3() {
+        return sc_3;
+    }
+    
+    public Image get_sc_4() {
+        return sc_4;
+    }
+    
+    public Image get_sc_5() {
+        return sc_5;
+    }
+    
+    public Image get_doctor() {
+        return doctor;
+    }
+    
+    public Image get_droplet() {
+        return droplet;
+    }
+    
+    public Image get_help() {
+        return help;
+    }
+    
+    public Image get_ending() {
+        return ending;
+    }
 }
