@@ -26,6 +26,7 @@ public class OperacjaKrew {
         System.out.println(kropelka2.get_bloodType());
         kropelka2.move_down();
         System.out.println(kropelka2.get_yPosition());
+        
     }
     
 }
