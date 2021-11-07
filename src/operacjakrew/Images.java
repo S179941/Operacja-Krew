@@ -49,7 +49,7 @@ public class Images {
     }
     
     public static Image get_blood_bag_full() {
-        return blood_bag_empty;
+        return blood_bag_full;
     }
     
     public static Image get_droplet_0m() {
