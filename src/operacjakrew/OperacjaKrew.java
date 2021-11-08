@@ -5,6 +5,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.*;
+import java.io.File;
 
 
 public class OperacjaKrew {  
@@ -26,7 +27,7 @@ public class OperacjaKrew {
         System.out.println(kropelka2.get_bloodType());
         kropelka2.move_down();
         System.out.println(kropelka2.get_yPosition());
-        
+       
     }
     
 }
