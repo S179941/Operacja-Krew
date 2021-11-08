@@ -5,7 +5,6 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.event.*;
 import java.util.*;
-import java.io.File;
 
 
 public class OperacjaKrew {  
@@ -27,6 +26,20 @@ public class OperacjaKrew {
         System.out.println(kropelka2.get_bloodType());
         kropelka2.move_down();
         System.out.println(kropelka2.get_yPosition());
+        
+        JFrame frame = new JFrame();
+        
+        JPanel pane = new JPanel() {
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                g.drawImage(Images.get_droplet_0m(), 100, 100, null);
+            }
+        };
+        frame.add(pane);
+        
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
        
     }
     
