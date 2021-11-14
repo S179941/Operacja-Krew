@@ -32,7 +32,7 @@ public class OperacjaKrew {
         JPanel pane = new JPanel() {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
-                g.drawImage(Images.get_help(), 0, 0, null);
+                g.drawImage(Images.get_credits(), 0, 0, null);
             }
         };
         frame.add(pane);

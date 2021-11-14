@@ -28,12 +28,17 @@ public class Images {
     private static final Image sc_4 = new ImageIcon("assets/scenarios/sc_4.png").getImage();
     private static final Image sc_5 = new ImageIcon("assets/scenarios/sc_5.png").getImage();
     
+    //Buttons
+    private static final Image button_start = new ImageIcon("assets/buttons/button_start.png").getImage();
+    private static final Image button_credits = new ImageIcon("assets/buttons/button_credits.png").getImage();
+    
     //Others
     private static final Image doctor = new ImageIcon("assets/others/doctor.png").getImage();
     private static final Image droplet = new ImageIcon("assets/others/droplet.png").getImage();
     private static final Image help = new ImageIcon("assets/others/help.png").getImage(); //Blood compatibility chart
     private static final Image start = new ImageIcon("assets/others/start.png").getImage(); //Main game menu
     private static final Image ending = new ImageIcon("assets/others/ending.png").getImage(); //Ending panel
+    private static final Image credits = new ImageIcon("assets/others/credits.png").getImage(); //Credits panel
     
     //Functions for image access
     
@@ -105,6 +110,14 @@ public class Images {
         return sc_5;
     }
     
+    public static Image get_button_start() {
+        return button_start;
+    }
+    
+    public static Image get_button_credits() {
+        return button_credits;
+    }
+    
     public static Image get_doctor() {
         return doctor;
     }
@@ -123,5 +136,9 @@ public class Images {
     
     public static Image get_ending() {
         return ending;
+    }
+    
+    public static Image get_credits() {
+        return credits;
     }
 }
