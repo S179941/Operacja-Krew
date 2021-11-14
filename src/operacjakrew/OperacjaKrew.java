@@ -41,7 +41,6 @@ public class OperacjaKrew {
         frame.pack();
         frame.setSize(1024,768);
         frame.setVisible(true);
-       
     }
     
 }
