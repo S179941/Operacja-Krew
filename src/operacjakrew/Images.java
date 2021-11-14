@@ -32,6 +32,7 @@ public class Images {
     private static final Image doctor = new ImageIcon("assets/others/doctor.png").getImage();
     private static final Image droplet = new ImageIcon("assets/others/droplet.png").getImage();
     private static final Image help = new ImageIcon("assets/others/help.png").getImage(); //Blood compatibility chart
+    private static final Image start = new ImageIcon("assets/others/start.png").getImage(); //Main game menu
     private static final Image ending = new ImageIcon("assets/others/ending.png").getImage(); //Ending panel
     
     //Functions for image access
@@ -114,6 +115,10 @@ public class Images {
     
     public static Image get_help() {
         return help;
+    }
+    
+    public static Image get_start() {
+        return start;
     }
     
     public static Image get_ending() {
