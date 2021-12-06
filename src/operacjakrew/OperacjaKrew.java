@@ -12,7 +12,7 @@ public class OperacjaKrew extends JFrame {
     static GamePanel gamepanel = new GamePanel();
     static EndingPanel endingpanel = new EndingPanel();
     static CreditsPanel creditspanel = new CreditsPanel();
-        
+    
     static CardLayout cardlayout = new CardLayout();
     static JPanel panels = new JPanel();
     
@@ -29,8 +29,9 @@ public class OperacjaKrew extends JFrame {
         add(panels);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+        //pack();
         setSize(1024,768);
+        setResizable(false);
         setIconImage(Images.get_droplet());
         setTitle("Operacja Krew");
         setVisible(true);

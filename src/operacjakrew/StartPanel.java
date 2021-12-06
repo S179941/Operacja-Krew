@@ -13,7 +13,10 @@ public class StartPanel extends JPanel {
     
     StartPanel() {
         
+        setLayout(null);
+        
         menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
+        menu.setBounds(350,450,310,220);
         add(menu);
         
         start.setIcon(new ImageIcon(Images.get_button_start()));

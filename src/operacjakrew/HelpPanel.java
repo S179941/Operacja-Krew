@@ -12,7 +12,10 @@ public class HelpPanel extends JPanel {
     
     HelpPanel() {
         
+        setLayout(null);
+        
         menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
+        menu.setBounds(350,550,310,110);
         add(menu);
         
         start.setIcon(new ImageIcon(Images.get_button_start()));
