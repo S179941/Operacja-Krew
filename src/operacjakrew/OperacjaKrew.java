@@ -2,10 +2,12 @@ package operacjakrew;
 
 import java.awt.*;
 import javax.swing.*;
+import java.util.Random;
 
 public class OperacjaKrew extends JFrame {
     
     //Calling constructors for all panels of game
+    public static Random rand = new Random();
         
     static StartPanel startpanel = new StartPanel();
     static HelpPanel helppanel = new HelpPanel();
@@ -15,6 +17,7 @@ public class OperacjaKrew extends JFrame {
     
     static CardLayout cardlayout = new CardLayout();
     static JPanel panels = new JPanel();
+    
     
     OperacjaKrew() {
         
