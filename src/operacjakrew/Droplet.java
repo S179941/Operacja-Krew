@@ -14,7 +14,7 @@ public class Droplet {
     public Droplet()
     {
         Random rand = new Random();
-        xPosition = (int)rand.nextInt(700);
+        xPosition = (int)rand.nextInt(750);
         yPosition = 0;
         
         bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
@@ -70,8 +70,22 @@ public class Droplet {
         return dropletImage;
     }
     
+    public void reset()
+    {
+        Random rand = new Random();
+        xPosition = (int)rand.nextInt(750);
+        yPosition = 0;
+        
+        bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
+    }
+    
     public void move_down()
     {
-        yPosition = yPosition + incrementY;
+        if(yPosition < 720)
+        {
+            yPosition = yPosition + incrementY;
+        }
+        else
+            reset();
     }
 }
