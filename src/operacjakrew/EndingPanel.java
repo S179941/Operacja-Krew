@@ -28,6 +28,7 @@ public class EndingPanel extends JPanel {
         {
             public void actionPerformed(ActionEvent e)
             {
+                OperacjaKrew.gameStatus.clear_finished();
                 OperacjaKrew.cardlayout.show(OperacjaKrew.panels, "CREDITS");
             }
         });

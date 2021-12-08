@@ -12,8 +12,8 @@ public class GamePanel extends JPanel{
     JLabel label = new JLabel(Scenarios.get_description(1));
     JPanel game = new JPanel();
     JPanel menu = new JPanel();
-    JButton button = new JButton(GameStatus.get_patient_bloodtype_String());
-    JLabel description = new JLabel(Scenarios.get_description(1));
+    JButton button = new JButton(OperacjaKrew.gameStatus.get_patient_bloodtype_String());
+    JLabel description = new JLabel(Scenarios.get_description(OperacjaKrew.gameStatus.get_current_level()));
     
     JLabel filled_bag = new JLabel();
     
@@ -33,17 +33,23 @@ public class GamePanel extends JPanel{
         menu.add(description);
         
         filled_bag.setBounds(100,100,320,520);
-        filled_bag.setIcon(new ImageIcon(GameStatus.get_bag_filling()));
+        filled_bag.setIcon(new ImageIcon(OperacjaKrew.gameStatus.get_bag_filling()));
         game.add(filled_bag);
         
         button.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
-                GameStatus.reset();
-                button.setText(GameStatus.get_patient_bloodtype_String());
-                OperacjaKrew.cardlayout.show(OperacjaKrew.panels, "ENDING");
-                System.out.printf(GameStatus.get_patient_bloodtype_String());
+                //GameStatus.reset();
+                OperacjaKrew.gameStatus.blood_collected();
+                button.setText(OperacjaKrew.gameStatus.get_patient_bloodtype_String());
+                filled_bag.setIcon(new ImageIcon(OperacjaKrew.gameStatus.get_bag_filling()));
+                description.setText(Scenarios.get_description(OperacjaKrew.gameStatus.get_current_level()));
+                if(OperacjaKrew.gameStatus.isFinished())
+                {
+                    OperacjaKrew.cardlayout.show(OperacjaKrew.panels, "ENDING");
+                }
+                //System.out.printf(GameStatus.get_patient_bloodtype_String());
             }
         });
         

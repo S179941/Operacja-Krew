@@ -8,6 +8,7 @@ public class OperacjaKrew extends JFrame {
     
     //Calling constructors for all panels of game
     public static Random rand = new Random();
+    public static GameStatus gameStatus = new GameStatus();
         
     static StartPanel startpanel = new StartPanel();
     static HelpPanel helppanel = new HelpPanel();

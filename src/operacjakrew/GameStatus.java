@@ -5,15 +5,27 @@ import javax.swing.*;
 
 public class GameStatus {
     
-    private static Integer currentLevel = 1;
-    private static Integer dropletsCollected = 0;
-    private static Integer bagsFilled = 0;
+    private Integer currentLevel;
+    private Integer dropletsCollected;
+    private Integer bagsFilled;
     
-    private static BloodType patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+    private BloodType patientType;
     
-    private static Boolean isStarted = false;
+    private Boolean isStarted;
+    private Boolean isFinished;
     
-    public static void blood_collected()
+    public GameStatus()
+    {
+        currentLevel = 1;
+        dropletsCollected = 0;
+        bagsFilled = 0;
+        
+        patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+        isStarted = false;
+        isFinished = false;
+    }
+    
+    public void blood_collected()
     {
         dropletsCollected++;
         
@@ -25,21 +37,29 @@ public class GameStatus {
         
         if(bagsFilled.equals(Scenarios.get_target(currentLevel)))
         {
-            currentLevel++;
-            dropletsCollected = 0;
-            bagsFilled = 0;
-            isStarted = false;
+            if(currentLevel == 5)
+            {
+                isFinished = true;
+                reset();
+            }
+            else
+            {
+                currentLevel++;
+                dropletsCollected = 0;
+                bagsFilled = 0;
+                isStarted = false;
             
-            patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+                patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+            }
         }
     }
     
-    public static void wrong_blood()
+    public void wrong_blood()
     {
         dropletsCollected = 0;
     }
     
-    public static void reset()
+    public void reset()
     {
         currentLevel = 1;
         dropletsCollected = 0;
@@ -49,17 +69,17 @@ public class GameStatus {
         patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
     }
     
-    public static BloodType get_patient_bloodtype()
+    public BloodType get_patient_bloodtype()
     {
         return patientType;
     }
     
-    public static Integer get_bags_filled()
+    public Integer get_bags_filled()
     {
         return bagsFilled;
     }
     
-    public static Image get_bag_filling()
+    public Image get_bag_filling()
     {
         Image filling = Images.get_blood_bag_empty();
         
@@ -81,12 +101,12 @@ public class GameStatus {
         return filling;
     }
     
-    public static Integer get_current_level()
+    public Integer get_current_level()
     {
         return currentLevel;
     }
     
-    public static String get_patient_bloodtype_String()
+    public String get_patient_bloodtype_String()
     {
         String patientTypeString = "";
         
@@ -118,5 +138,20 @@ public class GameStatus {
                 break;           
         }
         return patientTypeString;
+    }
+    
+    public Boolean isStarted()
+    {
+        return isStarted;
+    }
+    
+    public Boolean isFinished()
+    {
+        return isFinished;
+    }
+    
+    public void clear_finished()
+    {
+        isFinished = false;
     }
 }
