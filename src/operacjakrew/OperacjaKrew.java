@@ -50,5 +50,4 @@ public class OperacjaKrew extends JFrame {
     public static void main(String[] args) {
        new OperacjaKrew();
     }
-    
 }
