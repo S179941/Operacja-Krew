@@ -63,6 +63,7 @@ public class GamePanel extends JPanel {
                levelDescription.setText(Scenarios.get_description(OperacjaKrew.gameStatus.get_current_level()));
                levelTarget.setText(new String().format("%d jednostki",Scenarios.get_target(OperacjaKrew.gameStatus.get_current_level())));
                levelGroup.setText(OperacjaKrew.gameStatus.get_patient_bloodtype_String());
+               levelBagsText.setText(new String().format("%d X",OperacjaKrew.gameStatus.get_bags_filled()));
                levelBagFilling.setIcon(new ImageIcon(OperacjaKrew.gameStatus.get_bag_filling()));
                game.repaint();
            }
@@ -111,7 +112,7 @@ public class GamePanel extends JPanel {
         
         levelBagsText.setBounds(20,385,60,40);
         levelBagsText.setFont(new Font("Arial", Font.BOLD, 40));
-        levelBagsText.setText("0 X");
+        
         
         levelBagsIco.setBounds(100,370,37,60);
         levelBagsIco.setIcon(new ImageIcon(Images.get_blood_bag_full()));

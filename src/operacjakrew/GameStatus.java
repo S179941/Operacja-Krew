@@ -36,32 +36,40 @@ public class GameStatus {
     
     public void blood_collected()
     {
-        dropletsCollected++;
-        
-        if(dropletsCollected == 3)
+        if(check_blood())
         {
-            bagsFilled++;
-            dropletsCollected = 0;
-        }
+            dropletsCollected++;
         
-        if(bagsFilled.equals(Scenarios.get_target(currentLevel)))
-        {
-            if(currentLevel == 5)
+            if(dropletsCollected == 3)
             {
-                isFinished = true;
-                reset();
-            }
-            else
-            {
-                currentLevel++;
+                bagsFilled++;
                 dropletsCollected = 0;
-                bagsFilled = 0;
-                isStarted = false;
+            }
+        
+            if(bagsFilled.equals(Scenarios.get_target(currentLevel)))
+            {
+                if(currentLevel == 5)
+                {
+                    isFinished = true;
+                    droplet.reset();
+                    reset();
+                }
+                else
+                {
+                    currentLevel++;
+                    dropletsCollected = 0;
+                    bagsFilled = 0;
+                    isStarted = false;
+                    droplet.reset();
             
-                patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+                    patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+                }
             }
         }
+        else
+            wrong_blood();
     }
+        
     
     public void wrong_blood()
     {
@@ -149,6 +157,133 @@ public class GameStatus {
                 break;           
         }
         return patientTypeString;
+    }
+    
+    public Boolean check_blood()
+    {
+        Boolean result = false;
+        
+        switch(patientType)
+        {
+            case O_minus:
+                if(droplet.get_bloodType()==BloodType.O_minus)
+                    result = true;
+                break;
+            case O_plus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case O_plus:
+                        result = true;
+                        break;
+                }
+                break;
+            case A_minus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case A_minus:
+                        result = true;
+                        break;
+                }
+                break;
+            case A_plus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case O_plus:
+                        result = true;
+                        break;
+                    case A_minus:
+                        result = true;
+                        break;
+                    case A_plus:
+                        result = true;
+                        break;
+                }
+                break;
+            case B_minus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case B_minus:
+                        result = true;
+                        break;
+                }
+                break;
+            case B_plus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case O_plus:
+                        result = true;
+                        break;
+                    case B_minus:
+                        result = true;
+                        break;
+                    case B_plus:
+                        result = true;
+                        break;
+                }
+                break;
+            case AB_minus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case A_minus:
+                        result = true;
+                        break;
+                    case B_minus:
+                        result = true;
+                        break;
+                    case AB_minus:
+                        result = true;
+                        break;
+                }
+                break;
+            case AB_plus:
+                switch(droplet.get_bloodType())
+                {
+                    case O_minus:
+                        result = true;
+                        break;
+                    case O_plus:
+                        result = true;
+                        break;
+                    case A_minus:
+                        result = true;
+                        break;
+                    case A_plus:
+                        result = true;
+                        break;
+                    case B_minus:
+                        result = true;
+                        break;
+                    case B_plus:
+                        result = true;
+                        break;
+                    case AB_minus:
+                        result = true;
+                        break;
+                    case AB_plus:
+                        result = true;
+                        break;
+                }
+                break;
+        }
+        return result;
     }
     
     public Boolean isStarted()

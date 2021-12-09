@@ -14,7 +14,7 @@ public class Droplet {
     public Droplet()
     {
         Random rand = new Random();
-        xPosition = (int)rand.nextInt(750);
+        xPosition = (int)rand.nextInt(710);
         yPosition = 0;
         
         bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
@@ -73,7 +73,7 @@ public class Droplet {
     public void reset()
     {
         Random rand = new Random();
-        xPosition = (int)rand.nextInt(750);
+        xPosition = (int)rand.nextInt(710);
         yPosition = 0;
         
         bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
