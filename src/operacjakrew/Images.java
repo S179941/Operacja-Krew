@@ -1,3 +1,13 @@
+/*Proudly designed and written by Michał Ostrowski
+s179941@student.pg.edu.pl
+Faculty of Electronics, Telecommunication and IT
+Gdańsk University of Technology
+Some Rights Reserved 2021
+
+Some images from Flaticon.com
+Licence Free with Attribution
+*/
+
 package operacjakrew;
 
 import java.awt.*;

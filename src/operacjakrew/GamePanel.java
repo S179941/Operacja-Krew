@@ -1,11 +1,15 @@
+/*Proudly designed and written by Michał Ostrowski
+s179941@student.pg.edu.pl
+Faculty of Electronics, Telecommunication and IT
+Gdańsk University of Technology
+All Rights Reserved 2021
+*/
+
 package operacjakrew;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import java.util.*;
-import java.io.*;
 
 public class GamePanel extends JPanel {
     
