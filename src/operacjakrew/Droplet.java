@@ -9,7 +9,7 @@ public class Droplet {
     private Integer yPosition;
     private BloodType bloodType;
     
-    private final Integer incrementY = 10;
+    private final Integer incrementY = 1;
     
     public Droplet()
     {

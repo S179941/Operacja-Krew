@@ -14,6 +14,12 @@ public class GameStatus {
     private Boolean isStarted;
     private Boolean isFinished;
     
+    public Droplet droplet = new Droplet();
+    
+    private Integer doctorX;
+    private Integer doctorY;
+    private final Integer stepDoctor = 20;
+    
     public GameStatus()
     {
         currentLevel = 1;
@@ -23,6 +29,9 @@ public class GameStatus {
         patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
         isStarted = false;
         isFinished = false;
+        
+        doctorX = 313;
+        doctorY = 570;
     }
     
     public void blood_collected()
@@ -65,6 +74,8 @@ public class GameStatus {
         dropletsCollected = 0;
         bagsFilled = 0;
         isStarted = false;
+        doctorX = 313;
+        doctorY = 570;
         
         patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
     }
@@ -145,6 +156,11 @@ public class GameStatus {
         return isStarted;
     }
     
+    public void set_started()
+    {
+        isStarted = true;
+    }
+    
     public Boolean isFinished()
     {
         return isFinished;
@@ -153,5 +169,27 @@ public class GameStatus {
     public void clear_finished()
     {
         isFinished = false;
+    }
+    
+    public void move_doctor_left()
+    {
+        if(doctorX > 0)
+            doctorX = doctorX - stepDoctor;
+    }
+    
+    public void move_doctor_right()
+    {
+        if(doctorX < 730)
+            doctorX = doctorX + stepDoctor;
+    }
+    
+    public Integer get_doctor_x()
+    {
+        return doctorX;
+    }
+    
+    public Integer get_doctor_y()
+    {
+        return doctorY;
     }
 }

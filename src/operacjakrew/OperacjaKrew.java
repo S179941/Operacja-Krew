@@ -33,7 +33,6 @@ public class OperacjaKrew extends JFrame {
         add(panels);
         
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //pack();
         setSize(1024,768);
         setResizable(false);
         setIconImage(Images.get_droplet());
