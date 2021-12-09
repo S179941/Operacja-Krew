@@ -54,7 +54,7 @@ public class GamePanel extends JPanel {
                if(OperacjaKrew.gameStatus.isStarted())
                {
                    OperacjaKrew.gameStatus.droplet.move_down();
-                   //check_collision();
+                   detect_collision();
                    game.repaint();
                }
                
@@ -70,6 +70,17 @@ public class GamePanel extends JPanel {
            grabFocus();
         }
     };
+    
+    void detect_collision()
+    {
+	Rectangle doctorBox = new Rectangle(OperacjaKrew.gameStatus.get_doctor_x(),OperacjaKrew.gameStatus.get_doctor_y(),124,150);
+	Rectangle dropletBox = new Rectangle(OperacjaKrew.gameStatus.droplet.get_xPosition(),OperacjaKrew.gameStatus.droplet.get_yPosition(),57,80);
+		
+	if(dropletBox.intersects(doctorBox))
+        {
+            OperacjaKrew.gameStatus.blood_collected();
+	}
+    }
     
     javax.swing.Timer cycler = new javax.swing.Timer(5,repainter);
     
@@ -128,9 +139,6 @@ public class GamePanel extends JPanel {
         exit.setFont(new Font("Arial", Font.BOLD, 40));
         exit.setText("Exit");
         
-        test.setBounds(20,630,200,50);
-        test.setFont(new Font("Arial", Font.BOLD, 40));
-        
         add(game);
         add(menu);
         
@@ -146,8 +154,6 @@ public class GamePanel extends JPanel {
         menu.add(levelBagFilling);
         menu.add(start);
         menu.add(exit);
-        
-        menu.add(test);
         
         start.addActionListener(new ActionListener()
         {
@@ -165,14 +171,6 @@ public class GamePanel extends JPanel {
                 OperacjaKrew.gameStatus.droplet.reset();
                 game.repaint();
                 OperacjaKrew.cardlayout.show(OperacjaKrew.panels, "START");
-            }
-        });
-        
-        test.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                OperacjaKrew.gameStatus.blood_collected();
             }
         });
         

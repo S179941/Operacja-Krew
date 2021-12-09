@@ -68,6 +68,7 @@ public class GameStatus {
         }
         else
             wrong_blood();
+        droplet.reset();
     }
         
     
@@ -314,7 +315,7 @@ public class GameStatus {
     
     public void move_doctor_right()
     {
-        if(doctorX < 730)
+        if(doctorX < 660)
             doctorX = doctorX + stepDoctor;
     }
     
