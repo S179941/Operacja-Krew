@@ -9,37 +9,58 @@ package operacjakrew;
 
 import java.awt.*;
 
+/**
+ * Klasa służąca do opisywania stanu gry i jego modyfikowania
+ * @author Michał Ostrowski
+ */
 public class GameStatus {
-    
+    /** Numer aktualnego poziomu */
     private Integer currentLevel;
+    /** Zebrane krople */
     private Integer dropletsCollected;
+    /** Zgromadzone już jednostki krwi */
     private Integer bagsFilled;
-    
+    /** Grupa krwi aktualnego pacjenta */
     private BloodType patientType;
-    
+    /** Czy gracz uruchomił grę przyciskiem */
     private Boolean isStarted;
+    /** Czy gracz osiągnął cel gry */
     private Boolean isFinished;
-    
+    /** Utworzenie pojedynczej kropli krwi */
     public Droplet droplet = new Droplet();
-    
+    /** Pozycja lekarza w osi X */
     private Integer doctorX;
+    /** Pozycja lekarza w osi Y */
     private Integer doctorY;
+    /** O ile doktor ma się przesuwać po użyciu przycisku */
     private final Integer stepDoctor = 20;
     
+    /**
+     * Konstruktor - ustawienie początkowego stanu gry
+     */
     public GameStatus()
     {
+        /** Zaczyna się od 1 poziomu */
         currentLevel = 1;
+        /** Domyślnie brak kropli zebranych */
         dropletsCollected = 0;
+        /** Domyślnie brak pojemników wypełnionych */
         bagsFilled = 0;
-        
+        /** Losowanie grupy pierwszego pacjenta */
         patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
+        /** Domyślnie gra jest zawieszona */
         isStarted = false;
+        /** Domyślnie nie jest skończona */
         isFinished = false;
-        
+        /** Doktor domyślnie na środku */
         doctorX = 313;
+        /** Doktor przy dolnej krawędzi ekranu */
         doctorY = 570;
     }
     
+    /**
+     * Funkcja uruchamiana po zebraniu kropli krwi
+     */
     public void blood_collected()
     {
         if(check_blood())
@@ -77,12 +98,17 @@ public class GameStatus {
         droplet.reset();
     }
         
-    
+    /**
+     * Funkcja uruchamiana po zebraniu złej kropli
+     */
     public void wrong_blood()
     {
         dropletsCollected = 0;
     }
     
+    /**
+     * Funkcja resetująca status gry
+     */
     public void reset()
     {
         currentLevel = 1;
@@ -95,16 +121,28 @@ public class GameStatus {
         patientType = BloodType.values()[OperacjaKrew.rand.nextInt(BloodType.values().length)];
     }
     
+    /**
+     * Funkcja zwracająca grupę aktualnego pacjenta
+     * @return grupa krwi
+     */
     public BloodType get_patient_bloodtype()
     {
         return patientType;
     }
     
+    /**
+     * Funcja zwracająca liczbę wypełnionych pojemników 
+     * @return liczba jednostek
+     */
     public Integer get_bags_filled()
     {
         return bagsFilled;
     }
     
+    /**
+     * Funkcja zwracająca ikonę o odpowiednim stopniu wypełnienia
+     * @return ikona pakietu
+     */
     public Image get_bag_filling()
     {
         Image filling = Images.get_blood_bag_empty();
@@ -127,11 +165,19 @@ public class GameStatus {
         return filling;
     }
     
+    /**
+     * Funkcja zwracajaca numer poziomu
+     * @return numer poziomu
+     */
     public Integer get_current_level()
     {
         return currentLevel;
     }
     
+    /**
+     * Funkcja zwracająca grupę aktualnego pacjenta w formie tekstowej
+     * @return String z grupą
+     */
     public String get_patient_bloodtype_String()
     {
         String patientTypeString = "";
@@ -166,6 +212,10 @@ public class GameStatus {
         return patientTypeString;
     }
     
+    /**
+     * Funkcja porównująca grupę krwi zebranej z oczekiwaną
+     * @return czy krew jest odpowiednia
+     */
     public Boolean check_blood()
     {
         Boolean result = false;
@@ -293,43 +343,71 @@ public class GameStatus {
         return result;
     }
     
+    /**
+     * Funkcja sprawdzajaca, czy gracz zaczął poziom
+     * @return stan
+     */
     public Boolean isStarted()
     {
         return isStarted;
     }
     
+    /**
+     * Funkcja ustawiająca stan poziomu na zaczęty
+     */
     public void set_started()
     {
         isStarted = true;
     }
     
+    /**
+     * Funkcja sprawdzajaca, czy gra została ukończona
+     * @return stan
+     */
     public Boolean isFinished()
     {
         return isFinished;
     }
     
+    /**
+     * Funkcja resetujaca stan zakończenia gry
+     */
     public void clear_finished()
     {
         isFinished = false;
     }
     
+    /**
+     * Funkcja przesuwająca gracza w lewo
+     */
     public void move_doctor_left()
     {
         if(doctorX > 0)
             doctorX = doctorX - stepDoctor;
     }
     
+    /**
+     * Funkcja przesuwająca gracza w prawo
+     */
     public void move_doctor_right()
     {
         if(doctorX < 660)
             doctorX = doctorX + stepDoctor;
     }
     
+    /**
+     * Funkcja zwracająca pozycję gracza w osi X
+     * @return pozycja X
+     */
     public Integer get_doctor_x()
     {
         return doctorX;
     }
     
+    /**
+     * Funkcja zwracająca pozycję gracza w osi Y
+     * @return pozycja Y
+     */
     public Integer get_doctor_y()
     {
         return doctorY;

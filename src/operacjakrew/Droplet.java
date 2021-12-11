@@ -10,38 +10,67 @@ package operacjakrew;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * Klasa służąca do opisu pojedynczej kropli krwi
+ * @author Michał Ostrowski
+ */
+
 public class Droplet {
-    
+    /** Pozycja lewego górnego rogu kropli w osi X */
     private Integer xPosition;
+    /** Pozycja lewego górnego rogu kropli w osi Y */
     private Integer yPosition;
+    /** Grupa krwi (użyto enuma) */
     private BloodType bloodType;
-    
+    /** O ile ma się przesuwać kropla co iterację */
     private final Integer incrementY = 1;
     
+    /**
+     * Konstruktor - przygotowanie kropli do użycia w grze
+     */
     public Droplet()
     {
+        /** Inicjalizacja funkcji random do losowania grup i pozycji */
         Random rand = new Random();
+        /** Losowanie pozycji X */
         xPosition = (int)rand.nextInt(700);
+        /** Krople zaczynają ruch od samej góry */
         yPosition = 0;
-        
+        /** Losowanie grupy krwi */
         bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
     }
     
+    /**
+     * Pobierz pozycję kropli w osi X
+     * @return pozycja w osi X
+     */
     public Integer get_xPosition()
     {
         return xPosition;
     }
     
+    /**
+     * Pobierz pozycję kropli w osi Y
+     * @return pozycja w osi Y
+     */
     public Integer get_yPosition()
     {
         return yPosition;
     }
     
+    /**
+     * Pobierz grupę krwi kropli
+     * @return grupa krwi
+     */
     public BloodType get_bloodType()
     {
         return bloodType;
     }
     
+    /**
+     * Pobierz odpowiednią ikonę kropli, zależną od grupy
+     * @return ikona kropli z grupą
+     */
     public Image get_Image()
     {
         Image dropletImage = Images.get_droplet();
@@ -77,6 +106,9 @@ public class Droplet {
         return dropletImage;
     }
     
+    /**
+     * Wygeneruj na nowo wszystkie parametry kropli
+     */
     public void reset()
     {
         Random rand = new Random();
@@ -86,6 +118,9 @@ public class Droplet {
         bloodType = BloodType.values()[rand.nextInt(BloodType.values().length)];
     }
     
+    /**
+     * Przesuwanie kropli w dół ekranu
+     */
     public void move_down()
     {
         if(yPosition < 720)

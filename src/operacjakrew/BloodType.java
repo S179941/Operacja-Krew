@@ -7,6 +7,11 @@ All Rights Reserved 2021
 
 package operacjakrew;
 
+/**
+ * Enum służący do opisu grup krwi
+ * @author Michał Ostrowski
+ */
+
 public enum BloodType {
     O_minus,
     O_plus,

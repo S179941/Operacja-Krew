@@ -11,26 +11,31 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+/**
+ * Klasa służąca do obsługi panelu z zakończenim gry
+ * @author Michał Ostrowski
+ */
+
 public class EndingPanel extends JPanel {
-    
+    /** Przycisk kierujacy do panelu z creditsami */
     JButton credits = new JButton("");
-    
+    /** Panel do przechowywania przycisków */
     JPanel menu = new JPanel();
     
     EndingPanel() {
-        
+        /** Aby można było użyć setBounds */
         setLayout(null);
-        
+        /** Ustawienie pozycji menu */
         menu.setLayout(new BoxLayout(menu,BoxLayout.Y_AXIS));
         menu.setBounds(350,550,310,110);
         add(menu);
-        
-        credits.setIcon(new ImageIcon(Images.get_button_credits()));
-        
+        /** Dodanie przycisku z ikonką */
+        credits.setIcon(new ImageIcon(Images.get_button_credits()));  
         menu.add(credits);
-        
+        /** Listener do obsługi przycisku */
         credits.addActionListener(new ActionListener()
         {
+            @Override
             public void actionPerformed(ActionEvent e)
             {
                 OperacjaKrew.gameStatus.clear_finished();
@@ -38,14 +43,15 @@ public class EndingPanel extends JPanel {
             }
         });
     }
-    
-    public void paintComponent(Graphics g) {
-        
-		super.paintComponent(g);
-		Graphics2D g2d = (Graphics2D)g;
-		setFocusable(true);
+    /** Nadpisanie funkcji paintComponent aby ustawić tło */
+    @Override
+    public void paintComponent(Graphics g)
+    {
+	super.paintComponent(g);
+	Graphics2D g2d = (Graphics2D)g;
+	setFocusable(true);
 		
-		g2d.drawImage(Images.get_ending(), 0,0, null);
-		repaint();
+	g2d.drawImage(Images.get_ending(), 0,0, null);
+	repaint();
     }
 }

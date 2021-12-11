@@ -9,39 +9,63 @@ package operacjakrew;
 
 import java.awt.*;
 
+/**
+ * Klasa statyczna służąca do przechowywania scenariuszy poziomów
+ * @author Michał Ostrowski
+ */
+
 public class Scenarios {
-    
+    /** Poziom 1 */
     private static final class Scenario1 {
-        
+        /** Docelowa ilosć krwi */
         static Integer target = 1;
+        /** Opis poziomu */
         static String description = "Zewnętrzne usztywnienie nogi";
+        /** Obrazek poziomu */
         static Image picture = Images.get_sc_1();
     }
-    
+    /** Poziom 2 */
     private static final class Scenario2 {
+        /** Docelowa ilosć krwi */
         static Integer target = 2;
+        /** Opis poziomu */
         static String description = "Anemia";
+        /** Obrazek poziomu */
         static Image picture = Images.get_sc_2();
     }
-    
+    /** Poziom 3 */
     private static final class Scenario3 {
+        /** Docelowa ilosć krwi */
         static Integer target = 4;
+        /** Opis poziomu */
         static String description = "Wypadek komunikacyjny";
+        /** Obrazek poziomu */
         static Image picture = Images.get_sc_3();
     }
-    
+    /** Poziom 4 */
     private static final class Scenario4 {
+        /** Docelowa ilosć krwi */
         static Integer target = 6;
+        /** Opis poziomu */
         static String description = "Przeszczep serca";
+        /** Obrazek poziomu */
         static Image picture = Images.get_sc_4();
     }
-    
+    /** Poziom 5 */
     private static final class Scenario5 {
+        /** Docelowa ilosć krwi */
         static Integer target = 10;
+        /** Opis poziomu */
         static String description = "Przeszczep wątroby";
+        /** Obrazek poziomu */
         static Image picture = Images.get_sc_5();
     }
     
+    /**
+     * Pobierz ilość krwi do ukończenia pzoiomu
+     * @param sc numer poziomu
+     * @return ilość jednostek krwi
+     */
     public static Integer get_target(Integer sc) {
         
         Integer target = 0;
@@ -68,6 +92,11 @@ public class Scenarios {
         return target;
     }
     
+    /**
+     * Pobierz opis poziomu
+     * @param sc numer poziomu
+     * @return opis poziomu
+     */
     public static String get_description(Integer sc) {
         
         String description = "";
@@ -94,6 +123,11 @@ public class Scenarios {
         return description;
     }
     
+    /**
+     * Pobierz obrazek poziomu
+     * @param sc numer poziomu
+     * @return obrazek poziomu
+     */
     public static Image get_picture(Integer sc) {
         
         //Droplet as a dummy picture
