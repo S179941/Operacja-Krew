@@ -119,7 +119,7 @@ public class Droplet {
     }
     
     /**
-     * Przesuwanie kropli w dół ekranu
+     * Przesuwanie kropli w dół pola gry
      */
     public void move_down()
     {
