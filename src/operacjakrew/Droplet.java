@@ -23,7 +23,7 @@ public class Droplet {
     /** Grupa krwi (użyto enuma) */
     private BloodType bloodType;
     /** O ile ma się przesuwać kropla co iterację */
-    private final Integer incrementY = 3;
+    private final Integer incrementY = 1;
     
     /**
      * Konstruktor - przygotowanie kropli do użycia w grze
